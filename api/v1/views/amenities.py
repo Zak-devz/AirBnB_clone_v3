@@ -9,7 +9,7 @@ from flask import abort, request, jsonify
 
 @app_views.route("/amenities", strict_slashes=False, methods=["GET"])
 @app_views.route("/amenities/<amenity_id>", strict_slashes=False,
-		 methods=["GET"])
+                 methods=["GET"])
 def amenity(amenity_id=None):
     """show amenity and amenity with id"""
     amenity_list = []
@@ -51,7 +51,7 @@ def create_amenity():
 
 
 @app_views.route("/amenities/<amenity_id>", strict_slashes=False,
-		 methods=["PUT"])
+                 methods=["PUT"])
 def update_amenity(amenity_id):
     """update amenity"""
     obj = storage.get(Amenity, amenity_id)
