@@ -24,7 +24,7 @@ def places(city_id):
 
 
 @app_views.route("/places/<place_id>", strict_slashes=False, methods=["GET"])
-def place_id(place_id):
+def get_place(place_id):
     """Retrieves a City object"""
     place = storage.get(Place, place_id)
     if place is None:
@@ -55,14 +55,14 @@ def create_place(city_id):
         abort(400, "Not a JSON")
     if "user_id" not in data:
         abort(400, "Missing user_id")
-    user = storage.get(User, data.user_id)
+    user = storage.get(User, data["user_id"])
     if user is None:
         abort(404)
     if "name" not in data:
         abort(400, "Missing name")
-    new_city = City(city_id=city.id, **data)
-    new_city.save()
-    return jsonify(new_city.to_dict()), 201
+    new_place = place(city_id=city.id, **data)
+    new_place.save()
+    return jsonify(new_place.to_dict()), 201
 
 
 @app_views.route("/places/<place_id>", strict_slashes=False, methods=["PUT"])
