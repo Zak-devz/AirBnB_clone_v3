@@ -5,10 +5,10 @@ from flask import Flask
 from models import storage
 from api.v1.views import app_views
 
-# Global Flask Application Variable: app
+# creating a Flask app
 app = Flask(__name__)
 
-# app_views BluePrint defined in api.v1.views
+# Registering the API blueprint with a URL prefix
 app.register_blueprint(app_views, url_prefix="/api/v1")
 
 
