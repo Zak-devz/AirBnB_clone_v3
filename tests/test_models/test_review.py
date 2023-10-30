@@ -59,7 +59,6 @@ class TestReviewDocs(unittest.TestCase):
 
 class TestReview(unittest.TestCase):
     """Test the Review class"""
-
     def test_is_subclass(self):
         """Test if Review is a subclass of BaseModel"""
         review = Review()
@@ -102,11 +101,7 @@ class TestReview(unittest.TestCase):
         self.assertEqual(type(new_d), dict)
         self.assertFalse("_sa_instance_state" in new_d)
         for attr in r.__dict__:
-<<<<<<< Updated upstream
             if attr != "_sa_instance_state":
-=======
-            if attr is != "_sa_instance_state":
->>>>>>> Stashed changes
                 self.assertTrue(attr in new_d)
         self.assertTrue("__class__" in new_d)
 
